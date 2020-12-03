@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+    <link rel="icon" href="../html/icono.png">
+    <head>
+        <title>Repaso HTML CSS</title>
+    </head>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        h1,h2,h3,h4,h5 {            
+            text-align: center;
+        }
+        h1 > span {
+            color:red;
+        }
+        h4 {
+            text-decoration: underline black;
+        }
+        div.datos {
+            width: 100%;
+        }
+        table,.formulario {
+            margin: 0 auto;
+        }
+        table th {
+            text-align: left;
+            border-bottom: 2px solid black;
+        }
+        table td {
+            padding: 10px;
+        }
+        table tfoot tr th {
+            border-top: 2px solid black;
+            background-color: darkslategrey;
+            color:white;
+        }
+        tr:nth-child(even) {
+            background: #CCC
+        }
+        tr:nth-child(odd) {
+            background: #FFF
+        }
+        div.pietabla{
+            margin-left: 35%;
+        }
+        div.pietabla p {
+            margin: 1px;
+        }
+        div.formulario {
+            width: 30%;
+        }
+        p.condiciones {
+            overflow: scroll;
+            border: 1px solid black;
+            height: 90px;
+            margin: 10px;
+        }
+        .imagen {
+            width: 100%;
+            margin-top: 15px;
+        }
+        .principal {
+            width: 400px;
+        }
+        .alingend {
+            text-align: end;
+        }
+    </style>
+    <script type="text/javascript">
+        function recibir() {
+            console.log("recibir");
+            var nomId=document.getElementById("nombre").value;
+            var apeName=document.getElementsByName("apellidos")[0].value;
+            document.getElementById("escribir").innerHTML=" \ Tu nombre es: " + nomId +" \
+            <br>Tu apellido es: " + apeName + " <br>Tu solicitud ha sido enviada" ;
+        }
+
+        function mueveReloj(){
+            momentoActual = new Date()
+            hora = momentoActual.getHours()
+            minuto = momentoActual.getMinutes()
+            segundo = momentoActual.getSeconds()
+
+            str_segundo = new String (segundo)
+            if (str_segundo.length == 1)
+            segundo = "0" + segundo
+
+            str_minuto = new String (minuto)
+            if (str_minuto.length == 1)
+            minuto = "0" + minuto
+
+            str_hora = new String (hora)
+            if (str_hora.length == 1)
+            hora = "0" + hora
+
+            horaImprimible = hora + " : " + minuto + " : " + segundo
+
+            document.form_reloj.reloj.value = horaImprimible
+
+            setTimeout("mueveReloj()",1000)
+        }
+      </script>
+    <body onload="mueveReloj()">
+        <form class="alingend" name="form_reloj">
+            <input type="text" name="reloj" size="10" style="background-color : Black; color : White; font-family : Verdana, Arial, Helvetica; font-size : 8pt; text-align : center;" onfocus="window.document.form_reloj.reloj.blur()">
+        </form>
+        <h1><a href="https://www.thebridge.tech/" target="_blank"><img class="principal"src="../html/img/logo_bridge_pequeno.png"></a></h1>
+        <h1>Resumen de ventas <span>The Bridge</span></h1>
+        <div class="datos">
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="6">Relación de ventas por países (en millones de euros)</th> 
+                    </tr>
+                    <tr>
+                        <th>Países</th>
+                        <th>2011</th>
+                        <th>2012</th>
+                        <th>2013</th>
+                        <th>2014</th>
+                        <th>2015</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>España</td>
+                        <td>1.21</td>
+                        <td>2.23</td>
+                        <td>3.17</td>
+                        <td>4.22</td>
+                        <td>5.72</td>
+                    </tr>
+                    <tr>
+                        <td>Francia</td>
+                        <td>0.73</td>
+                        <td>1.32</td>
+                        <td>1.56</td>
+                        <td>1.72</td>
+                        <td>2.32</td>
+                    </tr>
+                    <tr>
+                        <td>Alemania</td>
+                        <td>1.56</td>
+                        <td>2.49</td>
+                        <td>3.01</td>
+                        <td>3.78</td>
+                        <td>4.27</td>
+                    </tr>
+                    <tr>
+                        <td>Italia</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>2.21</td>
+                        <td>3.58</td>
+                        <td>N/a<sup>1</sup></td>
+                    </tr>
+                    <tr>
+                        <td>Portugal</td>
+                        <td>0.94</td>
+                        <td>1.34</td>
+                        <td>1.67</td>
+                        <td>1.98</td>
+                        <td>2.23</td>
+                    </tr>
+                    <tr>
+                        <td>Holanda</td>
+                        <td>1.22</td>
+                        <td>1.87</td>
+                        <td>3.32</td>
+                        <td>3.67</td>
+                        <td>4.21</td>
+                    </tr>                                                                                
+                </tbody>
+                <tfoot>
+                    <tr>                    
+                        <th>Total</th>
+                        <th>5.66</th>
+                        <th>9.25</th>
+                        <th>14.94</th>
+                        <th>18.95</th>
+                        <th>18.75</th>                    
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="pietabla">
+            <p><sup>1</sup>Valor no facilitado al 03/12/2015.</p>
+            <p>Fuente: Dep. Inventado para la ocasión.</p>
+        </div>
+        <h2>¿Te quieres unir a nuestro equipo?</h2>
+        <h4>Rellena el siguiente formulario</h4>
+        <div class="formulario">
+            <fieldset>
+                <form action="#" method="POST" enctype="application/x-www-form-urlencoded">
+                    <fieldset>
+                        <legend>Datos personales</legend>
+                        <p><label for="nombre">Nombre: <input id="nombre" type="text" name="nombre" placeholder="Nombre"></label></p>
+                        <p><label>Apellidos: <input type="text" name="apellidos" maxlength="16" minlength="3" size="18"></label></p>
+                        <p><label>Sexo: Hombre <input type="radio" name="sexo" value="h">
+                                Mujer: <input type="radio" name="sexo" value="m">
+                                No Contesta: <input type="radio" name="sexo" value="x"></label></p>
+                        <p><label>Fecha de nacimiento:<input type="date" name="nacimiento"></label></p>
+                        <p><label>Edad: <input type="number" min="16" max="65" placeholder="16-65"></label></p>
+                        <p><label>E-mail: <input type="email"></label></p>
+                        <p><label>URL <input type="url" name="url" placeholder="https://www.linkedin.es"></label></p>
+                        <p><label>Curso:
+                            <select id="Curso">
+                                <optgroup label="Progamación">
+                                    <option value="FullStack">FullStack</option>
+                                </optgroup>
+                                <optgroup label="Data">
+                                    <option value="DataScience">DataScience</option>
+                                    <option value="DataQuality">DataQuality</option>
+                                </optgroup>
+                            </select>
+                        </label></p> 
+                        <p><label>URL <input type="url" name="url" placeholder="https://www.linkedin.es"></label></p> 
+                    </fieldset>
+                    <p>
+                        <label>
+                            <p class="condiciones">
+                                Acerca de estas condiciones
+                                Google puede modificar estas condiciones o las condiciones adicionales que se apliquen a un Servicio para,
+                                por ejemplo, reflejar cambios legislativos o en los Servicios. Te recomendamos que consultes las condiciones 
+                                de forma periódica. Google publicará avisos relacionados con las modificaciones de estas condiciones en esta página. 
+                                Asimismo, publicará avisos relacionados con las modificaciones que se hagan en las condiciones adicionales del Servicio correspondiente. 
+                                Las modificaciones no se aplicarán con carácter retroactivo y entrarán en vigor en un plazo no inferior a 14 días a partir de la fecha de 
+                                su publicación. No obstante, las modificaciones que afecten a nuevas funciones de un Servicio o los cambios que se hagan por cuestiones 
+                                legales entrarán en vigor de forma inmediata. Si no aceptas las condiciones modificadas de un Servicio, deberás dejar de usar dicho Servicio.
+                            </p>
+                            <p>
+                                <label>
+                                    <input type="checkbox" value="aceptar" name="condiciones" checked="checked">Acepto condiciones
+                                </label>
+                            </p>                         
+                        </label>
+                    </p>    
+                        <label>
+                            <input type="reset" value="reset"><label>
+                            <input type="button" onclick="recibir()" value="Enviar">
+                        </label>
+                    </p>
+                    <h5 id="escribir"></h5>
+                </form>
+            </fieldset>
+        </div>
+        <div class="formulario">
+            <img class="imagen" src="banner.jpg">
+        </div>
+    </body>
+</html>
